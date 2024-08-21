@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Create an empty array result to store the flattened values
+  // Iterate Through Each Item in the Array  arr.forEach((item) => {
+  //  Check if the Item is an Array:
+  // 1. if yes then again flatTheArray function call with new arr value  like   ---[1, 2] (array), call flatTheArray([1, 2])
+  // 2. if not then directly pushes to result
+  // Return the Result
+
+  function flatTheArray(arr) {
+    let result = [];
+
+    arr.forEach((item) => {
+      if (Array.isArray(item)) {
+        //  result = result.concat(flatTheArray(item));
+        result = [...result, ...flatTheArray(item)];
+      } else {
+        result.push(item);
+      }
+    });
+
+    return result;
+  }
+
+  console.log(flatTheArray([1, 2, 3, 4, [1, 2], [5, 6, [1, 8]]]));
+</script>

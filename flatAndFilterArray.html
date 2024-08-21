@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function flatAndFilterArray(arr) {
+    let result = [];
+    arr.forEach((item) => {
+      if (Array.isArray(item)) {
+        // result = [...arr, ...flatAndFilterArray(item)];
+        // console.log(result);
+        result = result.concat(flatAndFilterArray(item));
+      } else if (typeof item === "number" && !Number.isNaN(item)) {
+        result.push(item);
+      }
+    });
+    return result;
+  }
+
+  console.log(
+    flatAndFilterArray([
+      42,
+      "Hello, World!",
+      NaN,
+      true,
+      null,
+      [
+        false,
+        "Nested String",
+        0,
+        [100, "", "Another String", undefined, [1, 2, 3]],
+      ],
+    ])
+  );
+</script>

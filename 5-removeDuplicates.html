@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //Remove duplicates numbers form  an array
+  // step-1 create function who remove duplicates numbers form  an array
+  // step-2 Create an empty object to store the elements
+  // step-3  Create an empty array to store unique elements
+  // step-4 use loop on array
+  // step-5 Check if the element is not already a key in the object
+  // step-6 If not, add it to the unique array
+  // step-7 Set the element as a key in the object
+  // step-8 Return the array of unique elements
+
+  function removeDuplicates(arr) {
+    const obj = {};
+
+    const uniqueArray = [];
+
+    for (let i = 0; i < arr.length; i++) {
+      if (!obj[arr[i]]) {
+        uniqueArray.push(arr[i]);
+
+        obj[arr[i]] = true;
+      }
+      //   console.log(obj);
+    }
+
+    return uniqueArray;
+  }
+
+  console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+</script>

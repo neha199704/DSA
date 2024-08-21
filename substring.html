@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //     Given a string s, find the length of the longest
+  // substring
+  //  without repeating characters.
+
+  // Example 1:
+
+  // Input: s = "abcabcbb"
+  // Output: 3
+  // Explanation: The answer is "abc", with the length of 3.
+  // Example 2:
+
+  // Input: s = "bbbbb"
+  // Output: 1
+  // Explanation: The answer is "b", with the length of 1.
+  // Example 3:
+
+  // Input: s = "pwwkew"
+  // Output: 3
+  // Explanation: The answer is "wke", with the length of 3.
+  // Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+  function findSubstring(str) {
+    let words = str.split("");
+    let obj = {};
+    let result = [];
+
+    for (let i = 0; i < str.length; i++) {
+      if (!obj[str[i]]) {
+        obj[str[i]] = true;
+        result += str[i];
+      }
+    }
+    return result.length;
+  }
+
+  console.log("hello", findSubstring("hello"));
+  console.log(findSubstring("abcabcbb"));
+  console.log(findSubstring("bbbbbb"));
+  console.log(findSubstring("pwwkew"));
+</script>

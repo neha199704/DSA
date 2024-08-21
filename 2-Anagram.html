@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 2. Check if a string is an Anagram
+
+  //step-1 create a function who takes two parameters
+  //step-2 Check string length is equal or not
+  //step-3 create a empty object
+  //step-4 use for loop and count the character
+  //step-5 count the character of 2nd string
+  //step-6 check count character is in object or not and if yes - the count
+
+  function anagram(str, str1) {
+    if (str.length !== str1.length) {
+      return false;
+    }
+
+    let obj = {};
+
+    for (let i = 0; i < str.length; i++) {
+      obj[str[i]] = obj[str[i]] ? obj[str[i]] + 1 : 1;
+      //   console.log("-obj-", obj);
+    }
+
+    for (let i = 0; i < str1.length; i++) {
+      if (!obj[str1[i]]) {
+        return false;
+      } else {
+        obj[str1[i]]--;
+        // console.log("------obj----", obj);
+        // console.log("obj[str1[i]]--", obj[str1[i]]--);
+      }
+    }
+
+    for (let key in obj) {
+      if (obj[key] !== 0) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  console.log(anagram("cat", "act"));
+  console.log(anagram("hello", "bello"));
+</script>

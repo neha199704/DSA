@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Check if a string is palindrome
+
+  //step-1   Make function who reverse a string
+  //step-2  Take a variable who store empty string
+  //step-3  Use for loop to reverse the string (use loop in backward direction)
+  //step-4  Add each character of loop in your empty string
+  //step-5 Return empty string with ternery operator (empty string===string?true:false)
+
+  function reverseString(str) {
+    let result = "";
+    console.log(str.length);
+
+    for (let i = str.length - 1; i >= 0; i--) {
+      console.log(i);
+      result += str[i];
+    }
+    return result === str ? true : false;
+  }
+
+  console.log(reverseString("hello"));
+  console.log(reverseString("abba"));
+</script>

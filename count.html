@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // const languages = [
+  //     { language: 'JavaScript' },
+  //     { language: 'JavaScript' },
+  //     { language: 'TypeScript' },
+  //     { language: 'C++' }
+  // ];
+  // Output
+
+  // [
+  //     { language: 'JavaScript', count: 2 },
+  //     { language: 'TypeScript', count: 1 },
+  //     { language: 'C++', count: 1 }
+  // ]
+  const languages = [
+    { language: "JavaScript" },
+    { language: "JavaScript" },
+    { language: "TypeScript" },
+    { language: "C++" },
+  ];
+
+  function countLanguages(arr) {
+    let result = [];
+    let languageCount = {};
+
+    arr.forEach((item) => {
+      if (languageCount.hasOwnProperty(item.language)) {
+        languageCount[item.language]++;
+      } else {
+        languageCount[item.language] = 1;
+      }
+    });
+
+    for (let language in languageCount) {
+      if (languageCount.hasOwnProperty(language)) {
+        result.push({
+          language: language,
+          count: languageCount[language],
+        });
+      }
+    }
+
+    return result;
+  }
+
+  console.log(countLanguages(languages));
+</script>
