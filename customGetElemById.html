@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="find"></div>
+    <div>
+      <div>
+        <div><div id="innerDiv"></div></div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  console.log(document.body.children);
+  // function getElem(value) {
+  //   const parent = document.body.children;
+
+  //   function toFindID(key) {
+  //     for (let i = 0; i < key.length; i++) {
+  //       const currentElement = key[i];
+
+  //       if (value === currentElement.id) {
+  //         return currentElement;
+  //       }
+  //       if (currentElement.children.length > 0) {
+  //         const result = toFindID(currentElement.children);
+  //         if (result) return result;
+  //       }
+  //     }
+  //   }
+  //   const result = toFindID(parent);
+  //   return result || null;
+  // }
+
+  // by destructuring method
+
+  function getElem(value) {
+    const parent = document.body.children;
+
+    function toFindID(key) {
+      for (let i = 0; i < key.length; i++) {
+        const { id, children } = key[i];
+
+        if (value === id) {
+          return key[i];
+        }
+        if (children.length > 0) {
+          const result = toFindID(children);
+          if (result) return result;
+        }
+      }
+    }
+    const result = toFindID(parent);
+    return result || null;
+  }
+
+  console.log(getElem("find"));
+  console.log(getElem("innerDiv"));
+</script>

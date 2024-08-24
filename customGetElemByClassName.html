@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div>
+        <div>
+          <div class="inner">
+            <div>
+              <div>
+                <p class="para"></p>
+                <div>
+                  <div class="inner"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  function getElementsByClassName(className) {
+    const elements = [];
+    const parent = document.body.children;
+
+    function toFindClassName(_parent) {
+      for (let i = 0; i < _parent.length; i++) {
+        const item = _parent[i];
+
+        if (className === item.className) {
+          elements.push(item);
+        }
+
+        if (item.children.length > 0) {
+          toFindClassName(item.children);
+        }
+      }
+    }
+    toFindClassName(parent);
+    return elements;
+  }
+
+  console.log(getElementsByClassName("inner"));
+</script>
